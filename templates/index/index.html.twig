@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PHP Test{% endblock %}
+
+{% form_theme formEmail 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    <div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="emailModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="emailModalLabel">Send Email</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {{ form_start(formEmail) }}
+                <div class="modal-body">
+
+                        {{ form_row(formEmail.FromEmail, {'attr': {'placeholder': "Your email here"}}) }}
+
+
+                        {{ form_row(formEmail.ReceiverEmail, {'attr': {'placeholder': "The recipient email here"}}) }}
+
+
+                        {{ form_row(formEmail.Subject, {'attr': {'placeholder': "Email subject"}}) }}
+
+
+                        {{ form_row(formEmail.Content, {'attr': {'placeholder': "Write email content here"}}) }}
+
+
+                        {{ form_row(formEmail.Attachment, {'attr': {'placeholder': "Add file"}}) }}
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Send email</button>
+                </div>
+                {{ form_end(formEmail) }}
+            </div>
+        </div>
+    </div>
+    <div id="students">Loading...</div>
+
+    <script>
+
+    </script>
+
+{% endblock %}
+
